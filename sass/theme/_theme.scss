@@ -121,3 +121,46 @@ a.logo {
 			}
 	}
 }
+
+.home-hero {
+	.intro {
+		font-size: 16px;
+    font-weight: 600;
+    line-height: 1em;
+	}
+
+	.image {
+		background-size: cover;
+		background-position: center;
+		background-clip: content-box;
+		height: 350px;
+		@include media-breakpoint-up(md) {
+			height: 100%;
+		}
+	}
+}
+
+.custom-carousel-indicators {
+	list-style: none;
+	display: flex;
+	padding-inline-start: 0;
+
+	li {
+		padding: 0 .25em 0 .5em;
+		font-weight: 600;
+		&:first-child {
+			padding-left: 0;
+		}
+
+		span {
+			padding-bottom: 5px;
+			border-bottom: 1px solid darkgray;
+		}
+
+		&.active {
+			span {
+				border-bottom-color:  black;
+			}
+		}
+	}
+}
