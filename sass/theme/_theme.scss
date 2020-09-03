@@ -164,3 +164,67 @@ a.logo {
 		}
 	}
 }
+
+.register-form {
+
+	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+		color:$black;
+		opacity: 1; /* Firefox */
+	}
+	
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		color: $black;
+	}
+	
+	::-ms-input-placeholder { /* Microsoft Edge */
+		color: $black;
+	}
+
+  .form-group, .form-check, p {
+		margin-bottom: 1.3rem;
+	}
+	.form-check {
+		border: .5px solid #333;
+    padding: .5rem;
+	}
+	.form-check-label {
+		font-size: 14px;
+	}
+
+	.terms-condition-text {
+		font-size: 12px;
+		line-height: 1.2rem;
+	}
+
+	input {
+		background: transparent;
+    outline: 0;
+    border-width: 0 0 .5px;
+    border-color: $black;
+		border-radius: unset;
+		padding-left: 0px;
+		&:focus {
+			background: transparent;
+			border-color: $black;
+		}
+	}
+
+	button {
+		color: $aquamarine-dark;
+
+		&:hover {
+			color: $dark;
+			background-color: $aquamarine-dark;
+		}
+	}
+
+	.btn {
+		padding: .5rem .75rem;
+	}
+	
+	.form-check-input {
+		position: unset;
+		margin-top: unset;
+		margin-left: unset;
+	}
+}
