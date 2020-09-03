@@ -1,1 +1,123 @@
-// This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+/*
+ Add custom font face
+*/
+@font-face {
+	font-family: 'GT Walsheim Pro';
+	src: local('GT Walsheim Pro Light'), local('GT-Walsheim-Pro-Light'),
+			url('../fonts/GTWalsheim/GTWalsheimPro-Light.woff2') format('woff2'),
+			url('../fonts/GTWalsheim/GTWalsheimPro-Light.woff') format('woff'),
+			url('../fonts/GTWalsheim/GTWalsheimPro-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+
+/* Specify  own gutters for every breakpoint. */
+$grid-gutter-widths: (
+  xs: 50px,
+  /* "sm" takes the same width as "xs" automatically */
+  md: 100px,
+  lg: 200px
+);
+
+@each $grid-breakpoint, $grid-gutter-width in $grid-gutter-widths {
+  @include media-breakpoint-up($grid-breakpoint) {
+    $grid-gutter-half-width: $grid-gutter-width / 2;
+    .container, [class^="container-"] {
+        padding-right: $grid-gutter-half-width;
+        padding-left: $grid-gutter-half-width;
+    }
+    .row:not(.no-gutters) {
+      margin-right: -$grid-gutter-half-width;
+      margin-left: -$grid-gutter-half-width;
+    }
+    .row:not(.no-gutters) > .col,
+    .row:not(.no-gutters) > [class*="col-"] {
+      padding-right: $grid-gutter-half-width;
+      padding-left: $grid-gutter-half-width;
+    }
+  }
+}
+
+.no-gutters-right {
+	margin-right: 0 !important;
+}
+
+.no-gutters-right > .col, .no-gutters-right > [class*="col-"] {
+	padding-right: 0 !important;
+}
+
+
+html {
+	font-size: 18px;
+	scroll-behavior: smooth;
+}
+
+* {
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.heading {
+	font-size: 2.23rem;
+	line-height: 1.125em;
+}
+
+p {
+	line-height: 1.56em;
+}
+
+small {
+	line-height: .8em;
+}
+
+main {
+	padding-top: 90px;
+	@include media-breakpoint-up(md) {
+		padding-top: 130px;
+	}
+}
+
+#wrapper-navbar {
+	padding-top: 1rem;
+	padding-bottom: .5rem;
+
+	@include media-breakpoint-up(md) {
+		padding-top: 2.5rem;
+		padding-bottom: 1rem;
+	}
+}
+
+a.logo {
+	color: $body-color;
+	font-family: 'IBM Plex Mono';
+	&:hover {
+		text-decoration: none;
+	}
+		h1 {
+			font-size: 2.89rem;
+			line-height: 1.125em;
+			cursor: pointer;
+		}
+}
+
+.home-banner {
+	.row {
+		margin-right: 0px;
+			height: 350px;
+			background-size: cover;
+			background-position: center;
+			@include media-breakpoint-up(md) {
+				height: 560px;
+			}
+
+			h1 {	
+				font-size: 2.444rem;
+				@include media-breakpoint-up(md) {
+					font-size: 4.444rem;
+				}
+				color: $white;
+				font-family: 'GT Walsheim Pro';
+			}
+	}
+}
