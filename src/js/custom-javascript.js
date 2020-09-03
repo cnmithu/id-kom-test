@@ -72,6 +72,36 @@
 
     $(".register-form").submit(function (event) {
         event.preventDefault();
+        if (registerFormValidate) {
+            const $alert = $(this).find('.alert');
+            const form = $(this).serialize();
+            const formData = new FormData;
+            formData.append('action', 'register_user');
+            formData.append('data', form);
+
+            $.ajax(ajaxurl, {
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (res) {
+
+                    if (res.success) {
+                        $(this).trigger("reset");
+                        $(this).find('input').removeClass('is-valid');
+                    }
+
+                    $alert.find('.text').html(res.data);
+                    $alert.removeClass('alert-' + (res.success ? 'warning' : 'success')).addClass('alert-' + (res.success ? 'success' : 'warning'));
+                    $alert.removeClass('d-none');
+                    $alert.fadeTo(2000, 500).slideUp(500);
+
+                }.bind(this),
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
     });
 
 })(jQuery)

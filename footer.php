@@ -44,6 +44,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 </div><!-- #page we need this extra closing tag here -->
 
 <?php wp_footer(); ?>
+<script type="text/javascript">
+    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+</script>
 
 </body>
 
